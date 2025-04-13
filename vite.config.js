@@ -2,15 +2,29 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from "vite-plugin-svgr"
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [svgr({
-    exportAsDefault: true,
-    icon: true,
-  }), react(), ], 
+  base: '/Rosangela-Carvalho---Arquitetura/',
+  plugins: [
+    svgr({
+      exportAsDefault: true,
+      icon: true,
+    }), 
+    react()
+  ],
   assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.svg', '**/*.webp'],
   build: {
-    assetsInlineLimit: 4096
+    assetsInlineLimit: 0, // Alterado para forçar arquivos separados
+    outDir: 'dist',
+    emptyOutDir: true,
+    manifest: true, // Gera manifest.json
+    sourcemap: true, // Facilita debug
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
+      }
+    }
   },
   resolve: {
     alias: {
