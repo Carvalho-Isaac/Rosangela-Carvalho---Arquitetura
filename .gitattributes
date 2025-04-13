@@ -1,0 +1,4 @@
+*.js linguagem-detectada=JSX
+*.jsx linguagem-detectada=JSX
+*.css linguist-detectable=false
+*.html linguist-detectable=false
