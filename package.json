@@ -1,6 +1,7 @@
 {
   "name": "my-react-app",
   "private": true,
+  "linguist-language": "JavaScript React",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
